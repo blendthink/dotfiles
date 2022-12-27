@@ -1,0 +1,17 @@
+name: E2E Test
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  e2e-test:
+    runs-on: macos-latest
+    steps:
+      - name: Run test
+        # https://github.com/actions/runner-images/issues/264#issuecomment-574032011
+        shell: zsh {0}
+        run: curl -fsSL https://raw.githubusercontent.com/blendthink/dotfiles/main/install.zsh | zsh
