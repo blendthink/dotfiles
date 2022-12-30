@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-if which brew >/dev/null; then
+if type brew >/dev/null; then
   echo "Homebrew is already installed ✅ "
 else
   echo "Installing Homebrew..."
