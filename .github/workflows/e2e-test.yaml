@@ -13,7 +13,7 @@ jobs:
     defaults:
       run:
         # https://github.com/actions/runner-images/issues/264#issuecomment-574032011
-        shell: zsh {0}
+        shell: zsh -e {0}
     steps:
       - name: Uninstall CommandLineTools ( 5 minutes )
         run: rm -rf "$(xcode-select -p)"
