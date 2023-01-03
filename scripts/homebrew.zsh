@@ -6,9 +6,16 @@ else
   echo "Installing Homebrew..."
   # See https://brew.sh
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-  # shellcheck disable=SC2016
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>"$HOME/.zprofile"
+
+  if [[ $(uname -m) == 'arm64' ]]; then
+    # shellcheck disable=SC2016
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>"$HOME/.zprofile"
+  else
+    # shellcheck disable=SC2016
+    echo 'eval "$(/usr/local/bin/brew shellenv)"' >>"$HOME/.zprofile"
+  fi
   source "$HOME/.zprofile"
+
   echo "Completed installing Homebrew ✅ "
 fi
 
