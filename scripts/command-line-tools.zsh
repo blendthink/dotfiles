@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-if xcode-select -p >/dev/null; then
+if xcrun --version >/dev/null; then
   # If your CommandLineTools are too outdated,
   # Update them from Software Update in System Preferences or run:
   #   softwareupdate --all --install --force
