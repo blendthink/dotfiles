@@ -16,7 +16,9 @@ jobs:
         shell: zsh -e {0}
     steps:
       - name: Uninstall CommandLineTools ( 5 minutes )
-        run: rm -rf "$(xcode-select -p)"
+        run: |
+          sudo rm -rf "$(xcode-select -p)"
+          sudo xcode-select -r
       - name: Uninstall Homebrew ( 4 minutes )
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
       - name: Run test
