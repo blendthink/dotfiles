@@ -15,10 +15,8 @@ jobs:
         # https://github.com/actions/runner-images/issues/264#issuecomment-574032011
         shell: zsh -e {0}
     steps:
-      - name: Uninstall CommandLineTools ( 5 minutes )
-        run: |
-          sudo rm -rf "$(xcode-select -p)"
-          sudo xcode-select -r
+      - name: Reset Xcode CommandLineTools path
+        run: sudo xcode-select -r
       - name: Print Xcode CommandLineTools path
         run: xcode-select -p
       - name: Uninstall Homebrew ( 4 minutes )
