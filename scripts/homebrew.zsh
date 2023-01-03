@@ -11,3 +11,7 @@ else
   source "$HOME/.zprofile"
   echo "Completed installing Homebrew ✅ "
 fi
+
+echo "Upgrade Homebrew..."
+brew upgrade
+echo "Completed Upgrading Homebrew ✅ "
