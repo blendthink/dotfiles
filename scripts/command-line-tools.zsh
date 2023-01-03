@@ -6,10 +6,10 @@ if xcrun --version >/dev/null; then
   #   softwareupdate --all --install --force
   # If that doesn't show you any updates, run:
   #   sudo rm -rf "$(xcode-select -p)"
-  #   sudo xcode-select --install
+  #   xcode-select --install
   echo "CommandLineTools is already installed ✅ "
 else
   echo "Installing CommandLineTools..."
-  sudo xcode-select --install
+  xcode-select --install
   echo "Completed installing CommandLineTools ✅ "
 fi
