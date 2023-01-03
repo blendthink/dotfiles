@@ -11,6 +11,9 @@ jobs:
   e2e-test:
     runs-on: macos-latest
     steps:
+      - name: Uninstall CommandLineTools
+        shell: zsh {0}
+        run: rm -rf "$(xcode-select -p)"
       - name: Uninstall Homebrew
         shell: zsh {0}
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
