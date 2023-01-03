@@ -11,6 +11,9 @@ jobs:
   e2e-test:
     runs-on: macos-latest
     steps:
+      - name: Uninstall Homebrew
+        shell: zsh {0}
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
       - name: Run test
         # https://github.com/actions/runner-images/issues/264#issuecomment-574032011
         shell: zsh {0}
