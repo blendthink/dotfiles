@@ -19,6 +19,8 @@ jobs:
         run: sudo xcode-select -r
       - name: Print Xcode CommandLineTools path
         run: xcode-select -p
+      - name: Set Xcode CommandLineTools path
+        run: sudo xcode-select -s /Library/Developer/CommandLineTools
       - name: Uninstall CommandLineTools ( 1 minutes )
         run: sudo rm -rf /Library/Developer/CommandLineTools
       - name: Uninstall Homebrew ( 4 minutes )
