@@ -38,7 +38,7 @@ echo "pinentry-program $(which pinentry-mac)" >"$HOME/.gnupg/gpg-agent.conf"
 gpgconf --kill gpg-agent
 
 if [ "$CI" = true ]; then
-  gpg --pinentry-mode loopback --passphrase passwd --quick-gen-key "Tatsuya Okayama <admin@blendthink.dev>" default default 0
+  gpg --no-tty --pinentry-mode loopback --passphrase passwd --quick-gen-key "Tatsuya Okayama <admin@blendthink.dev>" default default 0
 else
   gpg --quick-gen-key "Tatsuya Okayama <admin@blendthink.dev>" default default 0
 fi
