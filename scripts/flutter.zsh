@@ -43,6 +43,14 @@ EOF
   curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash
 }
 
+function install_ruby() {
+  echo "Installing Ruby..."
+  latest_version=$(rbenv install -l | grep -v - | tail -1)
+  rbenv install "$latest_version"
+  rbenv global "$latest_version"
+  echo "Completed installing Ruby ✅ "
+}
+
 # See https://github.com/RobotsAndPencils/xcodes
 function install_xcodes() {
   if type xcodes >/dev/null; then
@@ -65,5 +73,6 @@ function install_xcode() {
 
 install_fvm
 install_rbenv
+install_ruby
 install_xcodes
 install_xcode
