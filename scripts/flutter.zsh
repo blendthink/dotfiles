@@ -15,4 +15,19 @@ function install_fvm() {
   return 0
 }
 
+# See https://github.com/RobotsAndPencils/xcodes
+function install_xcodes() {
+  if type xcodes >/dev/null; then
+    echo "xcodes is already installed ✅ "
+    return 0
+  fi
+
+  echo "Installing xcodes..."
+  brew install robotsandpencils/made/xcodes
+  echo "Completed installing xcodes ✅ "
+
+  return 0
+}
+
 install_fvm
+install_xcodes
