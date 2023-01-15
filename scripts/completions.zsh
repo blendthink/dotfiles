@@ -39,4 +39,29 @@ EOF
   return 0
 }
 
+# See https://zsh.sourceforge.io/Doc/Release/Completion-System.html
+function configure_completions() {
+  if grep -q '# Completions' "$HOME/.zshrc" &>/dev/null; then
+    echo 'Completions is already setting ✅ '
+  else
+    echo 'Setting completions...'
+    cat <<'EOF' >>"$HOME/.zshrc"
+
+# Completions
+zstyle ':completion::complete:*' use-cache true # Enable completion cache
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # Case-insensitive completion
+setopt complete_in_word # Tab completion even while typing
+setopt list_packed # Narrow display interval of completion list
+EOF
+    echo "Completed setting completions ✅ "
+  fi
+
+  echo 'Enabling completions...'
+  source "$HOME/.zshrc"
+  echo "Completed enabling completions ✅ "
+
+  return 0
+}
+
 configure_homebrew_completions
+configure_completions
