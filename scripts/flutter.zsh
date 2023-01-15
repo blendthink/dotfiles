@@ -29,5 +29,38 @@ function install_xcodes() {
   return 0
 }
 
+# See https://github.com/rbenv/rbenv
+function install_rbenv() {
+  if type rbenv >/dev/null; then
+    echo "rbenv is already installed ✅ "
+  else
+    echo "Installing rbenv..."
+    brew install rbenv ruby-build
+    rbenv init
+    echo "Completed installing rbenv ✅ "
+  fi
+
+  if grep -q '# rbenv path' "$HOME/.zshrc" &>/dev/null; then
+    echo "rbenv path is already setting ✅ "
+  else
+    echo 'Setting rbenv path...'
+    cat <<'EOF' >>"$HOME/.zshrc"
+
+# rbenv path
+eval "$(rbenv init - zsh)"
+EOF
+    echo "Completed setting rbenv path ✅ "
+  fi
+
+  echo 'Enabling rbenv...'
+  source "$HOME/.zprofile"
+  echo "Completed enabling rbenv ✅ "
+
+  curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash
+
+  return 0
+}
+
 install_fvm
 install_xcodes
+install_rbenv
