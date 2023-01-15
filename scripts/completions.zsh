@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 # Homebrew completions
 # See https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
 #

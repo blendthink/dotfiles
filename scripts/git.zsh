@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 if [[ $(type git) = *"homebrew"* ]]; then
   echo "Git is already installed ✅ "
 else

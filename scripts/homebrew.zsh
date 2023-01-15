@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 # See https://brew.sh
 function set_up_homebrew() {
   if type brew >/dev/null; then

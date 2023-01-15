@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 # See https://github.com/zsh-users/zsh-autosuggestions
 if brew list | grep zsh-autosuggestions &>/dev/null; then
   echo "zsh-autosuggestions is already installed ✅ "

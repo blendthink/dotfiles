@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 if xcrun --version >/dev/null; then
   # If your CommandLineTools are too outdated,
   # Update them from Software Update in System Preferences or run:

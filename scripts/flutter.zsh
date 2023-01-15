@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -e
+
 # See https://fvm.app
 function install_fvm() {
   if type fvm >/dev/null; then
