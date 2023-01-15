@@ -1,34 +1,42 @@
 #!/usr/bin/env zsh
 
-if type brew >/dev/null; then
-  echo "Homebrew is already installed ✅ "
-else
+# See https://brew.sh
+function set_up_homebrew() {
+  if type brew >/dev/null; then
+    echo "Homebrew is already installed ✅ "
+    return 0
+  fi
+
   echo "Installing Homebrew..."
-  # See https://brew.sh
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   echo "Completed installing Homebrew ✅ "
-fi
 
-if grep -q '# Homebrew settings' "$HOME/.zprofile" &>/dev/null; then
-  echo "Homebrew settings is already enabled ✅ "
-else
-  echo 'Enabling Homebrew settings...'
-  if [[ $(uname -m) == 'arm64' ]]; then
-    cat <<'EOF' >>"$HOME/.zprofile"
+  if grep -q '# Homebrew path' "$HOME/.zprofile" &>/dev/null; then
+    echo "Homebrew path is already setting ✅ "
+  else
+    echo 'Setting Homebrew path...'
+    if [[ $(uname -m) == 'arm64' ]]; then
+      cat <<'EOF' >>"$HOME/.zprofile"
 
-# Homebrew settings
+# Homebrew path
 eval "$(/opt/homebrew/bin/brew shellenv)"
 EOF
-  else
-    cat <<'EOF' >>"$HOME/.zprofile"
+    else
+      cat <<'EOF' >>"$HOME/.zprofile"
 
-# Homebrew settings
+# Homebrew path
 eval "$(/usr/local/bin/brew shellenv)"
 EOF
+    fi
+    echo "Completed setting Homebrew path ✅ "
   fi
+
+  echo 'Enabling Homebrew...'
   source "$HOME/.zprofile"
-  echo "Completed enabling Homebrew settings ✅ "
-fi
+  echo "Completed enabling Homebrew ✅ "
+}
+
+set_up_homebrew
 
 echo "Upgrade Homebrew..."
 brew upgrade
