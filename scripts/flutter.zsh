@@ -22,7 +22,6 @@ function install_rbenv() {
   else
     echo "Installing rbenv..."
     brew install rbenv ruby-build
-    rbenv init
     echo "Completed installing rbenv ✅ "
   fi
 
