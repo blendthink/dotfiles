@@ -38,7 +38,7 @@ EOF
   fi
 
   echo 'Enabling rbenv...'
-  source "$HOME/.zprofile"
+  source "$HOME/.zshrc"
   echo "Completed enabling rbenv ✅ "
 
   curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash
