@@ -23,7 +23,7 @@ function configure_homebrew_completions() {
     cat <<'EOF' >>"$HOME/.zshrc"
 
 # Homebrew completions
-if type brew &>/dev/null; then
+if type brew >/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
   # -U : Prevent user-defined alias from being overwritten when loading built-in functions
