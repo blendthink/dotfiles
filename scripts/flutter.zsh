@@ -71,8 +71,22 @@ function install_xcode() {
   echo "Completed installing Xcode ✅ "
 }
 
+# See https://docs.flutter.dev/get-started/install/macos
+function set_up_flutter() {
+  # See https://discussions.apple.com/thread/253780410
+  # See https://discussions.apple.com/thread/254363637
+  sudo softwareupdate --install-rosetta --agree-to-license
+  sudo xcodebuild -runFirstLaunch
+  sudo xcodebuild -license
+
+  # If necessary:
+  #   rbenv exec gem install cocoapods
+  #   rbenv exec gem uninstall ffi & rbenv exec gem install ffi -- --enable-libffi-alloc
+}
+
 install_fvm
 install_rbenv
 install_ruby
 install_xcodes
 install_xcode
+set_up_flutter
