@@ -16,7 +16,9 @@ else
   cat <<'EOF' >>"$HOME/.zshrc"
 
 # zsh-autosuggestions
-source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+if type brew &>/dev/null; then
+  source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
 EOF
   echo "Completed setting zsh-autosuggestions ✅ "
 fi
