@@ -57,8 +57,9 @@ function install_xcodes() {
 
 function install_xcode() {
   echo "Installing Xcode..."
-  xcodes install --latest
-  #xcodes select x.x.x
+  latest_version=$(xcodes list | grep -o '^[0-9]\+\.[0-9]\+\.*[0-9]*' | tail -1)
+  xcodes install "$latest_version"
+  xcodes select "$latest_version"
   echo "Completed installing Xcode ✅ "
 }
 
