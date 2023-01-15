@@ -11,22 +11,6 @@ function install_fvm() {
   brew tap leoafarias/fvm
   brew install fvm
   echo "Completed installing FVM ✅ "
-
-  return 0
-}
-
-# See https://github.com/RobotsAndPencils/xcodes
-function install_xcodes() {
-  if type xcodes >/dev/null; then
-    echo "xcodes is already installed ✅ "
-    return 0
-  fi
-
-  echo "Installing xcodes..."
-  brew install robotsandpencils/made/xcodes
-  echo "Completed installing xcodes ✅ "
-
-  return 0
 }
 
 # See https://github.com/rbenv/rbenv
@@ -57,10 +41,28 @@ EOF
   echo "Completed enabling rbenv ✅ "
 
   curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash
+}
 
-  return 0
+# See https://github.com/RobotsAndPencils/xcodes
+function install_xcodes() {
+  if type xcodes >/dev/null; then
+    echo "xcodes is already installed ✅ "
+    return 0
+  fi
+
+  echo "Installing xcodes..."
+  brew install robotsandpencils/made/xcodes
+  echo "Completed installing xcodes ✅ "
+}
+
+function install_xcode() {
+  echo "Installing Xcode..."
+  xcodes install --latest
+  #xcodes select x.x.x
+  echo "Completed installing Xcode ✅ "
 }
 
 install_fvm
-install_xcodes
 install_rbenv
+install_xcodes
+install_xcode
