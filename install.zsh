@@ -11,3 +11,4 @@ curl -fsSL "$SCRIPTS_URL/completions.zsh" | zsh
 curl -fsSL "$SCRIPTS_URL/suggestions.zsh" | zsh
 curl -fsSL "$SCRIPTS_URL/flutter.zsh" | zsh
 curl -fsSL "$SCRIPTS_URL/node.zsh" | zsh
+curl -fsSL "$SCRIPTS_URL/useful_tools.zsh" | zsh
