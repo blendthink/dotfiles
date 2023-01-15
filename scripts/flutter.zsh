@@ -32,7 +32,9 @@ function install_rbenv() {
     cat <<'EOF' >>"$HOME/.zshrc"
 
 # rbenv path
-eval "$(rbenv init - zsh)"
+if type rbenv >/dev/null; then
+  eval "$(rbenv init - zsh)"
+fi
 EOF
     echo "Completed setting rbenv path ✅ "
   fi
