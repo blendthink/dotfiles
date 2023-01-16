@@ -92,5 +92,10 @@ install_fvm
 install_rbenv
 install_ruby
 install_xcodes
+
+if $CI; then
+  exit 0
+fi
+
 install_xcode
 set_up_flutter
