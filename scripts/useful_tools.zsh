@@ -26,6 +26,7 @@ brew install --cask \
   slack \
   slack-cli \
   stoplight-studio \
+  xcodes \
   zoom \
   1password \
   1password-cli
