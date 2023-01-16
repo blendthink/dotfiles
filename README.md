@@ -1,5 +1,7 @@
 # dotfiles
 
+[![E2E_Test](https://github.com/blendthink/dotfiles/actions/workflows/e2e-test.yaml/badge.svg)](https://github.com/blendthink/dotfiles/actions/workflows/e2e-test.yaml)
+
 ## Requirements
 
 ```zsh
