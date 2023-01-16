@@ -21,7 +21,8 @@ function install_rbenv() {
     echo "rbenv is already installed ✅ "
   else
     echo "Installing rbenv..."
-    brew install rbenv ruby-build
+    # See https://github.com/rbenv/ruby-build/discussions/2118
+    brew install rbenv ruby-build libyaml
     echo "Completed installing rbenv ✅ "
   fi
 
