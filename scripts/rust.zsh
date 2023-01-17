@@ -7,7 +7,7 @@ if type rustup >/dev/null; then
   echo "rustup is already installed ✅ "
 else
   echo "Installing rustup..."
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   echo "Completed installing rustup ✅ "
 fi
 
