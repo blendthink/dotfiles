@@ -7,7 +7,7 @@ if [[ $(type git) = *"homebrew"* ]]; then
 else
   echo "Installing Git..."
   brew install git
-  source "$HOME/.zprofile"
+  source "$HOME/.zshrc"
   echo "Completed installing Git ✅ "
 fi
 

@@ -13,18 +13,18 @@ function set_up_homebrew() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   echo "Completed installing Homebrew ✅ "
 
-  if grep -q '# Homebrew path' "$HOME/.zprofile" &>/dev/null; then
+  if grep -q '# Homebrew path' "$HOME/.zshrc" &>/dev/null; then
     echo "Homebrew path is already setting ✅ "
   else
     echo 'Setting Homebrew path...'
     if [[ $(uname -m) == 'arm64' ]]; then
-      cat <<'EOF' >>"$HOME/.zprofile"
+      cat <<'EOF' >>"$HOME/.zshrc"
 
 # Homebrew path
 eval "$(/opt/homebrew/bin/brew shellenv)"
 EOF
     else
-      cat <<'EOF' >>"$HOME/.zprofile"
+      cat <<'EOF' >>"$HOME/.zshrc"
 
 # Homebrew path
 eval "$(/usr/local/bin/brew shellenv)"
@@ -34,7 +34,7 @@ EOF
   fi
 
   echo 'Enabling Homebrew...'
-  source "$HOME/.zprofile"
+  source "$HOME/.zshrc"
   echo "Completed enabling Homebrew ✅ "
 }
 
