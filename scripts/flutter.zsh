@@ -77,9 +77,11 @@ function install_xcode() {
 
 # See https://docs.flutter.dev/get-started/install/macos
 function set_up_flutter() {
-  # See https://discussions.apple.com/thread/253780410
-  # See https://discussions.apple.com/thread/254363637
-  sudo softwareupdate --install-rosetta --agree-to-license
+  if [[ $(uname -m) == 'arm64' ]]; then
+    # See https://discussions.apple.com/thread/253780410
+    # See https://discussions.apple.com/thread/254363637
+    sudo softwareupdate --install-rosetta --agree-to-license
+  fi
   sudo xcodebuild -runFirstLaunch
   sudo xcodebuild -license
 

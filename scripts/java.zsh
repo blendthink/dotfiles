@@ -2,8 +2,10 @@
 
 set -e
 
-# Temurin requires Rosetta 2 to be installed
-sudo softwareupdate --install-rosetta --agree-to-license
+if [[ $(uname -m) == 'arm64' ]]; then
+  # Temurin requires Rosetta 2 to be installed
+  sudo softwareupdate --install-rosetta --agree-to-license
+fi
 
 brew tap homebrew/cask-versions
 brew install --cask \
