@@ -2,6 +2,9 @@
 
 set -e
 
+# Temurin requires Rosetta 2 to be installed
+sudo softwareupdate --install-rosetta --agree-to-license
+
 brew tap homebrew/cask-versions
 brew install --cask \
   temurin8 \
