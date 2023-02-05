@@ -39,7 +39,7 @@ mkdir -p "$HOME/.gnupg" && chmod 700 "$HOME/.gnupg"
 echo "pinentry-program $(which pinentry-mac)" >"$HOME/.gnupg/gpg-agent.conf"
 gpgconf --kill gpg-agent
 
-if $CI; then
+if $GITHUB_ACTIONS; then
   gpg --no-tty --pinentry-mode loopback --passphrase passwd --quick-gen-key "Tatsuya Okayama <admin@blendthink.dev>" default default 0
 else
   gpg --quick-gen-key "Tatsuya Okayama <admin@blendthink.dev>" default default 0
@@ -48,7 +48,7 @@ fi
 GPG_KEY_ID=$(gpg --list-secret-keys --with-colons | awk -F: '$1 == "sec" {print $5}' | tail -n 1)
 GPG_PUBLIC_KEY=$(gpg --armor --export "$GPG_KEY_ID")
 
-if ! $CI; then
+if ! $GITHUB_ACTIONS; then
   yes | gh auth login -h github.com -s admin:gpg_key -p https -w
   gh api \
     --method POST \

@@ -2,7 +2,7 @@
 
 set -e
 
-if $CI; then
+if $GITHUB_ACTIONS; then
   exit 0
 fi
 
