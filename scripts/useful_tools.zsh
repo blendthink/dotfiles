@@ -37,14 +37,10 @@ brew install --cask \
 # - Sign in with Apple ID
 # - Install at least one app from App Store
 #
-# 1352778147  Bitwarden
 # 1482454543  Twitter
 # 540348655   Monosnap
-# 803453959   Slack
 # 539883307   LINE
 mas install \
-  1352778147 \
   1482454543 \
   540348655 \
-  803453959 \
   539883307
