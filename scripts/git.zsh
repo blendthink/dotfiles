@@ -37,6 +37,11 @@ else
   echo "Completed installing pinentry-mac ✅ "
 fi
 
+if gpg --list-secret-keys | grep -q "Tatsuya Okayama <admin@blendthink.dev>" &>/dev/null; then
+  echo 'Key already exists ✅ '
+  exit 0
+fi
+
 mkdir -p "$HOME/.gnupg" && chmod 700 "$HOME/.gnupg"
 echo "pinentry-program $(which pinentry-mac)" >"$HOME/.gnupg/gpg-agent.conf"
 gpgconf --kill gpg-agent
