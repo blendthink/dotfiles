@@ -20,6 +20,11 @@ function install_xcode() {
   if [[ "$GITHUB_ACTIONS" == 'true' ]]; then
     return 0
   fi
+
+  if xcodebuild -version &>/dev/null; then
+    return 0
+  fi
+
   echo "Installing Xcode..."
   xcodes install --latest --select
   echo "Completed installing Xcode ✅ "
