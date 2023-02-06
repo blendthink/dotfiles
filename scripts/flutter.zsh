@@ -4,6 +4,27 @@ set -e
 
 source "$HOME/.zshrc"
 
+# See https://github.com/RobotsAndPencils/xcodes
+function install_xcodes() {
+  if type xcodes >/dev/null; then
+    echo "xcodes is already installed ✅ "
+    return 0
+  fi
+
+  echo "Installing xcodes..."
+  brew install robotsandpencils/made/xcodes
+  echo "Completed installing xcodes ✅ "
+}
+
+function install_xcode() {
+  if [[ "$GITHUB_ACTIONS" == 'true' ]]; then
+    return 0
+  fi
+  echo "Installing Xcode..."
+  xcodes install --latest --select
+  echo "Completed installing Xcode ✅ "
+}
+
 # See https://fvm.app
 function install_fvm() {
   if type fvm >/dev/null; then
@@ -57,26 +78,12 @@ function install_ruby() {
   echo "Completed installing Ruby ✅ "
 }
 
-# See https://github.com/RobotsAndPencils/xcodes
-function install_xcodes() {
-  if type xcodes >/dev/null; then
-    echo "xcodes is already installed ✅ "
+# See https://docs.flutter.dev/get-started/install/macos
+function set_up_flutter() {
+  if [[ "$GITHUB_ACTIONS" == 'true' ]]; then
     return 0
   fi
 
-  echo "Installing xcodes..."
-  brew install robotsandpencils/made/xcodes
-  echo "Completed installing xcodes ✅ "
-}
-
-function install_xcode() {
-  echo "Installing Xcode..."
-  xcodes install --latest --select
-  echo "Completed installing Xcode ✅ "
-}
-
-# See https://docs.flutter.dev/get-started/install/macos
-function set_up_flutter() {
   if [[ $(uname -m) == 'arm64' ]]; then
     # See https://discussions.apple.com/thread/253780410
     # See https://discussions.apple.com/thread/254363637
@@ -90,14 +97,9 @@ function set_up_flutter() {
   #   rbenv exec gem uninstall ffi & rbenv exec gem install ffi -- --enable-libffi-alloc
 }
 
+install_xcodes
+install_xcode
 install_fvm
 install_rbenv
 install_ruby
-install_xcodes
-
-if [[ "$GITHUB_ACTIONS" == 'true' ]]; then
-  exit 0
-fi
-
-install_xcode
 set_up_flutter
