@@ -2,6 +2,8 @@
 
 set -e
 
+source "$HOME/.zshrc"
+
 # See https://www.rust-lang.org/tools/install
 if type rustup >/dev/null; then
   echo "rustup is already installed ✅ "

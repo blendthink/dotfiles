@@ -2,6 +2,8 @@
 
 set -e
 
+source "$HOME/.zshrc"
+
 # Homebrew completions
 # See https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
 #

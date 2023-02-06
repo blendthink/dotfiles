@@ -2,6 +2,8 @@
 
 set -e
 
+source "$HOME/.zshrc"
+
 # See https://github.com/nodenv/nodenv
 if type nodenv >/dev/null; then
   echo "nodenv is already installed ✅ "

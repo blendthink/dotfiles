@@ -2,6 +2,8 @@
 
 set -e
 
+source "$HOME/.zshrc"
+
 if [[ $(type git) = *"homebrew"* ]]; then
   echo "Git is already installed ✅ "
 else

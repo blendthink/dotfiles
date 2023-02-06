@@ -2,6 +2,8 @@
 
 set -e
 
+source "$HOME/.zshrc"
+
 # See https://fvm.app
 function install_fvm() {
   if type fvm >/dev/null; then

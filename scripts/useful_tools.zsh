@@ -6,6 +6,8 @@ if $GITHUB_ACTIONS; then
   exit 0
 fi
 
+source "$HOME/.zshrc"
+
 brew install \
   ffmpeg \
   graphviz \
