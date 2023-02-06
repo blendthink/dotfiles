@@ -95,7 +95,7 @@ install_rbenv
 install_ruby
 install_xcodes
 
-if $GITHUB_ACTIONS; then
+if [[ "$GITHUB_ACTIONS" == 'true' ]]; then
   exit 0
 fi
 
