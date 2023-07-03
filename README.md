@@ -10,8 +10,8 @@ sw_vers
 
 ```
 ProductName:    macOS
-ProductVersion: 13.2
-BuildVersion:   22D49
+ProductVersion: 13.4.1
+BuildVersion:   22F82
 ```
 
 ```zsh
@@ -19,7 +19,7 @@ zsh --version
 ```
 
 ```
-zsh 5.8.1 (x86_64-apple-darwin22.0)
+zsh 5.9 (x86_64-apple-darwin22.0)
 ```
 
 ## Installation
