@@ -30,6 +30,9 @@ source "$HOME/.zshrc"
 echo "Completed enabling rustup ✅ "
 
 echo "Update rustup..."
+rustup self update
+rustup update
+
 # See:
 #   - https://doc.rust-lang.org/book/appendix-04-useful-development-tools.html
 #   - https://rust-analyzer.github.io
@@ -37,7 +40,6 @@ echo "Update rustup..."
 #   rustup component list --installed
 rustup component add \
   rustfmt clippy rust-analyzer rust-src rust-analysis rust-docs
-rustup self update
 echo "Completed updating rustup ✅ "
 
 # Note:
