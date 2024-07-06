@@ -18,7 +18,7 @@ brew install \
 brew install --cask \
   bitwarden \
   discord \
-  docker \
+  orbstack \
   figma \
   fork \
   google-chrome \
