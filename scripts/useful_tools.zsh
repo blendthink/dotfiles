@@ -30,7 +30,8 @@ brew install --cask \
   xcodes \
   zoom \
   1password \
-  1password-cli
+  1password-cli \
+  visual-studio-code
 
 # See https://github.com/mas-cli/mas
 #
