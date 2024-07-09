@@ -12,7 +12,7 @@ function install_xcodes() {
   fi
 
   echo "Installing xcodes..."
-  brew install robotsandpencils/made/xcodes
+  brew install xcodesorg/made/xcodes
   echo "Completed installing xcodes ✅ "
 }
 
