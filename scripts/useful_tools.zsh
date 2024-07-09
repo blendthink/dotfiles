@@ -24,7 +24,6 @@ brew install --cask \
   google-chrome \
   jetbrains-toolbox \
   notion \
-  skitch \
   slack \
   slack-cli \
   stoplight-studio \
