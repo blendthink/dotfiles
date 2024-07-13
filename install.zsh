@@ -2,6 +2,13 @@
 
 set -e
 
+TYPE=$1
+
+if [[ "$TYPE" != "work" && "$TYPE" != "private" ]]; then
+  echo "Error: Invalid argument. Please use 'work' or 'private'."
+  exit 1
+fi
+
 SCRIPTS_URL="https://raw.githubusercontent.com/blendthink/dotfiles/main/scripts"
 
 curl "$SCRIPTS_URL/defaults.zsh" | zsh

@@ -25,5 +25,9 @@ zsh 5.9 (x86_64-apple-darwin22.0)
 ## Installation
 
 ```zsh
-sudo curl https://raw.githubusercontent.com/blendthink/dotfiles/main/install.zsh | zsh
+# Work
+sudo curl https://raw.githubusercontent.com/blendthink/dotfiles/main/install.zsh | zsh -s work
+
+# Private
+sudo curl https://raw.githubusercontent.com/blendthink/dotfiles/main/install.zsh | zsh -s private
 ```
