@@ -6,6 +6,13 @@ if [[ "$GITHUB_ACTIONS" == 'true' ]]; then
   exit 0
 fi
 
+TYPE=$1
+
+if [[ "$TYPE" != "work" && "$TYPE" != "private" ]]; then
+  echo "Error: Invalid argument. Please use 'work' or 'private'."
+  exit 1
+fi
+
 source "$HOME/.zshrc"
 
 brew install \
@@ -13,25 +20,30 @@ brew install \
   graphviz \
   imagemagick \
   mas-cli/tap/mas \
-  tree
+  tree \
+  jq \
+  yq
 
 brew install --cask \
   bitwarden \
-  discord \
   orbstack \
   figma \
   fork \
   google-chrome \
   jetbrains-toolbox \
-  notion \
   slack \
-  slack-cli \
-  stoplight-studio \
   xcodes \
   zoom \
-  1password \
-  1password-cli \
   visual-studio-code
+
+if [[ "$TYPE" != "private" ]]; then
+  exit 0
+fi
+
+brew install --cask \
+  discord \
+  notion \
+  cursor
 
 # See https://github.com/mas-cli/mas
 #

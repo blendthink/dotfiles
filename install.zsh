@@ -21,4 +21,4 @@ curl "$SCRIPTS_URL/java.zsh" | zsh
 curl "$SCRIPTS_URL/flutter.zsh" | zsh
 curl "$SCRIPTS_URL/rust.zsh" | zsh
 curl "$SCRIPTS_URL/node.zsh" | zsh
-curl "$SCRIPTS_URL/useful_tools.zsh" | zsh
+curl "$SCRIPTS_URL/useful_tools.zsh" | zsh -s "$TYPE"
