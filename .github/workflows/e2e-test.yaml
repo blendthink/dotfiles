@@ -22,4 +22,4 @@ jobs:
       - name: Uninstall Homebrew ( 4 minutes )
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
       - name: Run test
-        run: sudo curl https://raw.githubusercontent.com/blendthink/dotfiles/main/install.zsh | zsh
+        run: sudo curl https://raw.githubusercontent.com/blendthink/dotfiles/main/install.zsh | zsh -s work
