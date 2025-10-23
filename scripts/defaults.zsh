@@ -12,8 +12,8 @@ defaults -currentHost write com.apple.controlcenter.plist BatteryShowPercentage 
 defaults write com.apple.menuextra.clock.plist "ShowSeconds" -bool true
 
 # DS_Store
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+sudo defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+sudo defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 killall Finder
 
 # Finder
