@@ -25,6 +25,7 @@ function install_xcode() {
     return 0
   fi
 
+  # https://developer.apple.com/account にて、事前に Apple Developer Terms and Conditions を承諾する必要がある
   echo "Installing Xcode..."
   xcodes install --latest --select
   echo "Completed installing Xcode ✅ "
